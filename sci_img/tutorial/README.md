@@ -33,7 +33,8 @@ Phase 02 — Spatial Perception & Analysis
   ├─ 03 Image Segmentation (Watershed → U-Net)
   ├─ 04 Image Alignment & Registration (SimpleITK + Pix2Pix)
   ├─ 05 Stereo Vision & Depth Estimation
-  └─ 06 Self-Supervised Bioimage Denoising (Noise2Void / Noise2Self)
+  ├─ 06 Self-Supervised Bioimage Denoising (Noise2Void / Noise2Self)
+  └─ 07 Image Quality Control: When Metrics Fail
 
 Phase 03 — Advanced Medical AI
   ├─ 01 3-D Volumetric Segmentation with MONAI
@@ -188,7 +189,8 @@ tutorial/
 │   ├── ImageSegmentation/
 │   ├── ImageAlignmentRegister/
 │   ├── StereoVision/
-│   └── BioimageDenoising/
+│   ├── BioimageDenoising/
+│   └── ImageQualityControl/
 ├── AdvancedMedicalAI/
 │   ├── README.md
 │   ├── Volume3DSegmentation/

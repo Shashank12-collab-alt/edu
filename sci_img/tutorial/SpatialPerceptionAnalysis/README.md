@@ -16,6 +16,7 @@ Phase 01 gave you the vocabulary: tensors, filters, features. Phase 02 is about 
 | 4 | [`ImageAlignmentRegister`](ImageAlignmentRegister/) | SimpleITK registration, Pix2Pix GAN translation | `image_registration.ipynb`, `image_translation.ipynb` | Yes (Pix2Pix) |
 | 5 | [`StereoVision`](StereoVision/) | Stereo geometry, DLT triangulation, block matching (SAD/SSD/NCC), rectification | `stereo.ipynb` | No |
 | 6 | [`BioimageDenoising`](BioimageDenoising/) | Self-supervised denoising, Noise2Void, Noise2Self, classical baselines | `self_supervised_bioimage_denoising.ipynb` | Yes |
+| 7 | [`ImageQualityControl`](ImageQualityControl/) | When focus and quality scores fail under noise, clipping, and illumination | `image_quality_metric_failure_modes.ipynb` | No |
 
 All GPU-using notebooks fall back to CPU automatically — training will be slower but the pipeline still runs.
 
@@ -101,6 +102,18 @@ You will study the theoretical foundations of **Noise2Void** and **Noise2Self**,
 
 ---
 
+### Module 07 — Image Quality Control
+
+Focus scores are usually checked on a z-stack of one field, where they work. This module asks what those same scores do when the field, the photon count, the clipping, or the illumination changes. All of the images are synthetic test patterns generated in the notebook, so each failure has a known cause.
+
+You will compare normalized variance, Laplacian variance, scikit-image's no-reference blur score, and a mid-band spectral slope. A last section fits a reject/keep cutoff on 20 objects and reports false positives and false negatives on 20 held-out objects.
+
+**Key skills:** no-reference sharpness scores, saturation as a gate rather than a score, grouped train/test splits, false-positive and false-negative rates.
+
+**Connects to:** Module 06 (reference metrics such as PSNR and SSIM, which this module does not recompute); Phase 03, Academic Approach (why a split has to keep related images together).
+
+---
+
 ## Learning Goals
 
 After completing Phase 02 you will be able to:
@@ -142,6 +155,7 @@ After completing Phase 02 you will be able to:
 | 04 — SimpleITK | No | CPU only | |
 | 04 — Pix2Pix | Yes | ~8 GB | U-Net + PatchGAN |
 | 05 — Stereo Vision | No | CPU only | |
+| 07 — Image quality | No | CPU only | Synthetic exposures; a few seconds |
 
 All notebooks detect GPU availability and fall back to CPU automatically.
 
@@ -171,6 +185,8 @@ ObjectDetectTracking
 ImageAlignmentRegister
            ↓
 StereoVision
+           ↓
+ImageQualityControl
 ```
 
 ---
